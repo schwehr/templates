@@ -1,0 +1,43 @@
+#+STARTUP: showall
+
+#+TITLE: Cheatsheat for fink / debian tools
+
+* Intro
+
+* update-alternatives
+
+http://schwehr.org/blog/archives/2011-06.html#e2011-06-15T14_39_37.txt
+
+#+BEGIN_SRC sh
+update-alternatives --display gpsd-py 
+ls -l /sw/var/lib/dpkg/alternatives/*gps*
+ls -l /sw/etc/alternatives/*gps*
+#+END_SRC
+
+
+Validating, run this:
+
+#+BEGIN_SRC sh
+PKG=cheetah
+ls -l /sw/bin | grep -i $PKG
+ls -l /sw/etc/alternatives | grep -i $PKG
+ls -l /sw/var/lib/dpkg/alternatives/ | grep -i $PKG
+update-alternatives --display $PKG
+#+END_SRC
+
+
+
+*** How to wipe bad alternatives?
+
+* misc
+
+#+BEGIN_SRC sh
+mdfind cheetah-py.info | grep 'info$' | grep unstable | xargs emacsclient --no-wait
+fink remove --recursive cheetah-py26 cheetah-py27
+
+
+dpkg -I $deb | egrep 'Conflicts|Replaces' # dump the control file
+dpkg -S /sw/sbin/update-alternatives # which package owns a file
+dpkg -L gpsd  # files in a package: 
+#+END_SRC
+

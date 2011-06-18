@@ -1,0 +1,14 @@
+#+STARTUP: showall
+
+* Introduction
+
+This is my project to capture language template files that I use as
+documentation and sample code for basic tasks.  I'm also going to try
+to rewrite my dot files in a mixed public/private mode where I've
+split off the material that I can't give out.  It has a different feel
+to me than yasnippets for these templates, but I will also try to
+build snippet libraries that I can use.
+
+* Summary of directories
+
+- elisp: emacs and org-mode work
